@@ -1,0 +1,44 @@
+{
+    "name": "root",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:asiraky/tt.git"
+    },
+    "workspaces": [
+        "frontend",
+        "server"
+    ],
+    "scripts": {
+        "frontend": "yarn workspace @tt/app",
+        "server": "yarn workspace @tt/wss",
+        "build": "npx --yes lerna@6.6.2 run build",
+        "dev": "npx --yes lerna@6.6.2 run --parallel dev",
+        "tsc": "npx --yes lerna@6.6.2 run tsc",
+        "tsc:watch": "npx lerna run --parallel tsc:watch",
+        "clean": "npx --yes lerna@6.6.2 run clean && shx rm -rf dist node_modules",
+        "clean:tsc": "npx lerna run clean:tsc",
+        "lint": "npx lerna run lint --"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^7.0.2",
+        "@typescript-eslint/parser": "^7.0.2",
+        "eslint": "^8.56.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-prettier": "^5.1.3",
+        "eslint-plugin-simple-import-sort": "^12.0.0",
+        "eslint-plugin-unused-imports": "^3.1.0",
+        "lerna": "^5.1.6",
+        "prettier": "^3.2.5"
+    },
+    "engines": {
+        "node": ">=18.19.1",
+        "yarn": ">=1.22.0",
+        "npm": "please-use-yarn"
+    },
+    "packageManager": "yarn@1.22.0",
+    "dependencies": {
+        "shx": "^0.3.4"
+    }
+}
